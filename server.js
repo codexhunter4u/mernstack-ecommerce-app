@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import path from "path";
 import cors from "cors";
+import { fileURLToPath } from "url";
 import connetDB from "./Config/db.js";
 import authRoutes from "./Router/AuthRoutes.js";
 import orderRoutes from "./Router/OrderRoutes.js";
@@ -15,6 +16,10 @@ dotenv.config();
 
 // database config
 connetDB();
+
+//esmodule fix
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Rest Object
 const app = express();
